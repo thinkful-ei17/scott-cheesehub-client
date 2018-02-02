@@ -14,7 +14,6 @@ export default function(state = initialState, action){
         loading: true
       });
     case FETCH_CHEESES_SUCCESS:
-    console.log('SUCCESS ran:', action);
       return Object.assign({}, state, {
         loading: false,
         error: null,

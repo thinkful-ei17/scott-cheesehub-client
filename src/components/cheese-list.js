@@ -19,7 +19,6 @@ export class CheeseList extends React.Component {
   }
 
   render(){
-    console.log(this.props.cheeses);
     return(
       <ul className='cheese-list'>
         {this.makeList()}
@@ -28,13 +27,8 @@ export class CheeseList extends React.Component {
   }   
 }
 
-const mapStateToProps = state => {
-  console.log('state is:', state);
-  
-  return ({
+const mapStateToProps = state => ({
     cheeses: state.cheeses
   });
-
-};
 
 export default connect(mapStateToProps)(CheeseList);
