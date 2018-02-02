@@ -1,6 +1,6 @@
 
 
-export const FETCH_CHEESE_REQUEST = 'FETCH_CHEESES_REQUEST';
+export const FETCH_CHEESES_REQUEST = 'FETCH_CHEESES_REQUEST';
 export const fetchCheesesRequest = () => ({
     type: FETCH_CHEESES_REQUEST
 
@@ -21,17 +21,18 @@ export const fetchCheesesError = (error) =>({
 
 
 
-export const fetchCheeses = ()=> dispatch => {
+export const fetchCheeses = () => dispatch => {
   dispatch(fetchCheesesRequest());
   return fetch(`http://localhost:8080/api/cheeses`)
   .then(res =>{
     if(!res.ok){
       return Promise.reject('Something went wrong')
     }
-    return res.json();
+    return res.json();//this is a promise - it's waiting for the body of the response to come back
   })
   .then(cheeses => {
     dispatch(fetchCheesesSuccess(cheeses));
   })
   .catch(err => dispatch(fetchCheesesError(err)));
 }
+
