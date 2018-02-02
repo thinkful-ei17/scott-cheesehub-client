@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import {Provider} from 'react-redux';
 import './index.css';
-import CheeseList from './components/cheese-list';
+import CheeseForm from './components/cheese-form';
 import store from './store';
 import registerServiceWorker from './registerServiceWorker';
 
@@ -15,7 +15,7 @@ import registerServiceWorker from './registerServiceWorker';
 
 ReactDOM.render(
 <Provider store={store}>
-  <CheeseList />
+  <CheeseForm />
 </Provider>, 
 
 document.getElementById('root'));

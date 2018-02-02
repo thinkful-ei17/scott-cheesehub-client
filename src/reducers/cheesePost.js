@@ -1,4 +1,4 @@
-import {FETCH_CHEESES_REQUEST, FETCH_CHEESES_SUCCESS, FETCH_CHEESES_ERROR} from '../actions/cheese';
+import { POST_CHEESES_REQUEST, POST_CHEESES_SUCCESS, POST_CHEESES_ERROR } from '../actions/cheese-post';
 
 
 const initialState = {
@@ -7,25 +7,25 @@ const initialState = {
   error: null
 };
 
-export default function(state = initialState, action){
-  switch(action.type){
-    case FETCH_CHEESES_REQUEST:
+export default function (state = initialState, action) {
+  switch (action.type) {
+    case POST_CHEESES_REQUEST:
       return Object.assign({}, state, {
         loading: true
       });
-    case FETCH_CHEESES_SUCCESS:
+    case POST_CHEESES_SUCCESS:
       return Object.assign({}, state, {
         loading: false,
         error: null,
         cheeses: action.cheeses
       });
-    case FETCH_CHEESES_ERROR:
+    case POST_CHEESES_ERROR:
       return Object.assign({}, state, {
         loading: false,
         error: action.error,
         cheeses: null
-      });  
+      });
     default:
-      return state    
+      return state
   }
 }
